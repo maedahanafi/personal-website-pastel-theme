@@ -1,0 +1,424 @@
+/********************************** Font face **********************************/
+@font-face {
+  font-family: Raleway;
+  src: url(./Raleway-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: RalewayItalic;
+  src: url(./Raleway-Italic-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: RalewayBlack;
+  src: url(./Raleway-Black.ttf);
+}
+@font-face {
+  font-family: RalewayBold;
+  src: url(./Raleway-Bold.ttf);
+}
+/********************************** Color Variables **********************************/
+/* purples */
+/* pinks */
+/* gray */
+/********************************** Font **********************************/
+/********************************** Mixins for components **********************************/
+/********************************** Paddings, Margins, Spacings **********************************/
+/********************************** Web Layouts  **********************************/
+/********************************** Mobile Layouts  **********************************/
+/********************************** Nav **********************************/
+/********************************** Paddings, Margins, Spacings **********************************/
+/********************************** Font sizes **********************************/
+/********************************** Body layout and body components **********************************/
+body {
+  display: grid;
+  height: 100%;
+  grid-template-columns: minmax(5%, 30px) minmax(500px, auto) 5%;
+  grid-template-rows: minmax(8%, max-content) max-content auto;
+  grid-template-areas: ". nav ." ". header ." ". main .";
+  /*background-color: $light-pink;*/
+  font-family: Raleway;
+  font-weight: 500;
+  background-color: #ffe7e6;
+  font-size: 21px;
+}
+body > .header {
+  grid-area: header;
+  /*background-color: $light-pink;*/
+  font-family: Raleway;
+  font-weight: 500;
+  background-color: #ffe7e6;
+  padding: 16px;
+}
+body .nav {
+  grid-area: nav;
+  font-family: Raleway;
+  color: #9999a1;
+  font-weight: 500;
+  background-color: #f8ebee;
+  color: #b6add8;
+  border-bottom: 1px solid #b6add8;
+  /* For sticky header effect*/
+  position: fixed;
+  top: 0;
+  /*right: 0;*/
+  width: 100%;
+  display: flex;
+}
+body .nav .myLinks {
+  width: 100%;
+  display: flex;
+  padding: 0 16px;
+  height: 48px;
+}
+body .main {
+  grid-area: main;
+  padding: 16px;
+}
+
+/* Mobile phone screens */
+@media only screen and (max-device-width: 450px) {
+  html {
+    /*font-size: 1.5em;*/
+  }
+  body {
+    display: grid;
+    /*row-gap: 2em;*/
+    row-gap: 16px;
+    grid-template-columns: 16px auto 16px;
+    /*grid-template-rows: auto auto auto;*/
+    grid-template-areas: ". nav ." ". header ." ". main .";
+  }
+  body > .header {
+    margin-top: 100px;
+  }
+}
+/* Tablet screens */
+/********************************** Components: Name **********************************/
+.header .name {
+  font-size: 60px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  font-family: RalewayBlack;
+  color: #66666e;
+}
+
+/********************************** Components: Paragraph **********************************/
+.paragraph {
+  padding: 16px;
+}
+
+/********************************** Components: icon **********************************/
+.menu-icon {
+  display: none;
+}
+
+@media only screen and (max-device-width: 450px) {
+  .menu-icon {
+    color: #b6add8;
+    padding: 0.75em 1em;
+    text-decoration: none;
+    font-size: 2.3em;
+    display: block;
+    background: #f8ebee;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+/********************************** URLs **********************************/
+a {
+  color: #715ea2;
+  text-decoration: underline;
+}
+
+/********************************** Components: Nav links **********************************/
+.nav {
+  z-index: 100;
+}
+.nav > .name {
+  font-family: RalewayBlack;
+  color: #715ea2;
+  padding: 16px;
+  padding-right: 32px;
+}
+.nav .button {
+  width: fit-content;
+  padding: 0 16px;
+  line-height: 48px;
+}
+.nav .clicked, .nav .button:hover {
+  border-bottom: 4px solid #715ea2;
+  cursor: pointer;
+  color: #715ea2;
+}
+.nav #myLinks {
+  display: flex;
+}
+
+@media only screen and (max-device-width: 450px) {
+  body .nav {
+    display: block;
+    font-size: 2em;
+  }
+  body .nav > .name {
+    font-size: 2em;
+    line-height: 2.5em;
+    padding-left: 16px;
+  }
+  body .nav #myLinks {
+    display: none;
+    background-color: #f8ebee;
+    padding: 16px;
+  }
+  body .nav #myLinks > .button {
+    padding: 16px;
+    display: block;
+    font-size: 2em;
+    line-height: 2em;
+  }
+}
+/********************************** Paragraphs  **********************************/
+p {
+  color: #715ea2;
+  margin: inherit;
+}
+
+@media only screen and (max-device-width: 450px) {
+  .paragraph {
+    padding: 32px;
+  }
+}
+/********************************** Info card  **********************************/
+.info-card {
+  background-color: #ffd1dc;
+  padding: 32px;
+  color: #b6add8;
+}
+.info-card i {
+  margin-right: 16px;
+  color: #ffd1dc;
+  padding: 0.5em 0.5em;
+  text-decoration: none;
+  background: #b6add8;
+  position: relative;
+  right: 0;
+  top: 0;
+  font-size: 18px;
+  height: 18px;
+  width: 18px;
+  border-radius: 5px;
+  border: 0.5px solid #66666e;
+}
+.info-card .fa-code {
+  font-size: 17px;
+}
+.info-card p {
+  padding: 2px 0px;
+  color: #6d6d74;
+  /*font-weight: 500;
+  font-family: Arial;*/
+}
+
+@media only screen and (max-device-width: 450px) {
+  .info-card i {
+    margin-right: 16px;
+    padding: 16px;
+    font-size: 12px;
+    height: 32px;
+    width: 32px;
+  }
+  .info-card .fa-code {
+    font-size: 12px;
+  }
+}
+/********************************** Colored texts  **********************************/
+/*.highlight{
+  color: theme.$dark-pink;
+}*/
+/*.location{
+  color: theme.$dark-pink;
+}*/
+/********************************** Resume-row  **********************************/
+.resume-row {
+  padding: 16px;
+  margin: 16px 0;
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto;
+  grid-template-areas: "resume-col-header" "resume-col-content";
+  /*background-color: theme.$pink-white-bg;*/
+}
+.resume-row .resume-col-header {
+  font-size: 32px;
+  font-family: RalewayBlack;
+  color: #715ea2;
+  padding: 16px 0;
+}
+.resume-row .resume-col-content {
+  font-family: Raleway;
+  color: #6d6d74;
+}
+
+@media only screen and (max-device-width: 450px) {
+  .resume-row {
+    padding: 32px;
+    margin: 32px 0;
+  }
+}
+/********************************** Content box  **********************************/
+/* content- --> this means its a project, presentation, paper, item, etc.*/
+/* content-text-box --> same as above just without thumbnail */
+.content-text-box {
+  /*
+  	a content-text-box contains
+  	header  --  date
+  	location
+  	description
+  	links
+  */
+  display: grid;
+  grid-template-columns: 80% 20%;
+  grid-template-rows: auto auto auto auto;
+  grid-template-areas: "tileheader date" "location location" "description description" "links links";
+  padding: 16px;
+  margin: 16px 0px;
+  border-radius: 0.5em;
+  background-color: #eaeaec;
+  border: 0.5px solid #66666e;
+  color: white;
+}
+.content-text-box > .header {
+  color: #715ea2;
+  font-family: RalewayBlack;
+  grid-area: tileheader;
+}
+.content-text-box .location {
+  grid-area: location;
+  color: #6d6d74;
+  font-weight: 600;
+}
+.content-text-box .date {
+  grid-area: date;
+  text-align: right;
+  background-color: #ffe7e6;
+  border-radius: 0.25em;
+  color: #6d6d74;
+  font-size: 18px;
+  padding: 2px 4px;
+  border: 0.5px solid #66666e;
+}
+.content-text-box .description {
+  grid-area: description;
+  color: #9999a1;
+}
+.content-text-box .links {
+  grid-area: links;
+}
+
+@media only screen and (max-device-width: 768px) {
+  .content-text-box {
+    width: 100%;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto auto auto auto;
+    grid-template-areas: "date" "tileheader" "location" "description" "links";
+  }
+  .content-text-box > .date {
+    grid-area: date;
+    text-align: left;
+    margin-bottom: 16px;
+  }
+}
+@media only screen and (max-device-width: 450px) {
+  .content-text-box {
+    margin-bottom: 32px;
+    padding-top: 32px;
+  }
+  .content-text-box > .date {
+    margin-bottom: 32px;
+  }
+}
+/********************************* List **************************************************************************************************/
+/* list --> this contains a compact ist of list-items and publication-items
+   list-items contains
+   	- a header within the item with darker font
+   	- a description with gray font
+   	- date
+   	- location
+   	- links
+
+   publication-items contains
+    - a header within the item with darker font
+	- title with gray font
+    - date
+    - location
+    - links
+
+*/
+.list {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-auto-flow: row;
+  margin-top: 16px;
+}
+.list > .list-item {
+  padding: 16px;
+  border-top: #66666e solid 0.5px;
+}
+.list > .list-item > .header {
+  color: #715ea2;
+}
+.list > .list-item > .title {
+  color: #715ea2;
+}
+.list > .list-item > .description {
+  /*color: theme.$light-gray;*/
+  grid-area: description;
+}
+.list > .list-item > .location {
+  /*color: theme.$light-gray;*/
+  grid-area: location;
+}
+.list > .list-item > .date {
+  grid-area: date;
+  /*color: theme.$light-gray;*/
+}
+.list > .list-item > .links {
+  grid-area: links;
+}
+.list > .publication-item {
+  padding: 16px;
+  border-top: #66666e solid 0.5px;
+  /*background: #ffd1dc;
+  margin: 8px 0px;
+  border-radius: 1em;*/
+}
+.list > .publication-item > .header {
+  color: #715ea2;
+}
+.list > .publication-item > .title {
+  color: #715ea2;
+}
+.list > .publication-item > .location {
+  /*color: theme.$light-gray;*/
+  grid-area: location;
+}
+.list > .publication-item > .date {
+  grid-area: date;
+  /*color: theme.$light-gray;*/
+}
+.list > .publication-item > .links {
+  grid-area: links;
+}
+.list > .tabbed {
+  padding-left: 16px;
+}
+
+@media only screen and (max-device-width: 450px) {
+  .list > .list-item {
+    padding: 32px;
+  }
+  .list > .publication-item {
+    padding: 32px;
+  }
+}
+
+/*# sourceMappingURL=pastel.pink.css.map */

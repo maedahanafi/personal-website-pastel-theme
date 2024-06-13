@@ -1,0 +1,491 @@
+@use 'pastel.pink' as theme;
+@use 'layout' as layout;
+@use 'components' as components;
+
+/********************************** Paddings, Margins, Spacings **********************************/
+
+$padding: 16px;
+$padding-double: 32px;
+$padding-mobile: 32px;
+
+/********************************** Font sizes **********************************/
+
+$font-size: 21px;
+$small-font-size: 18px;
+$large-font-size: 32px;
+$xlarge-font-size: 60px;
+$large-font-size-mobile: 2em;
+
+/********************************** Body layout and body components **********************************/
+
+$nav-bar-height: 48px;
+
+body {
+  @include layout.body-layout();
+  @include theme.body();
+
+  font-size: $font-size;
+
+  > .header{
+    @include layout.header();
+    @include theme.body();
+    padding: $padding;
+  }
+
+  .nav{
+    @include layout.nav();
+    @include theme.nav();
+    @include components.sticky-nav();
+    display: flex;
+
+    .myLinks{
+      width: 100%;
+
+      display: flex;
+      padding: 0 $padding;
+      height: $nav-bar-height;
+    }
+  }
+
+  .main{
+    @include layout.main();
+    padding: $padding;
+
+  }
+}
+
+/* Mobile phone screens */
+@media only screen and (max-device-width: 450px) {
+  html{
+    /*font-size: 1.5em;*/
+  }
+
+  body {
+    @include layout.body-layout-mobile();
+    > .header{
+      margin-top: 100px;
+    }
+  }
+}
+
+/* Tablet screens */
+
+@media only screen and (max-device-width: 768px) {
+
+  html{
+  }
+}
+
+/********************************** Components: Name **********************************/
+
+.header .name{
+  font-size: $xlarge-font-size;
+  padding-top: $padding;
+  padding-bottom: $padding;
+  font-family: theme.$font-stack-bold;
+  color: theme.$dark-gray;
+}
+
+
+
+/********************************** Components: Paragraph **********************************/
+.paragraph{
+  padding: $padding;
+}
+
+/********************************** Components: icon **********************************/
+.menu-icon{
+
+  display: none;
+}
+
+@media only screen and (max-device-width: 450px) {
+  .menu-icon{
+    color: theme.$purple-bg;
+    padding: 0.75em 1em;
+    text-decoration: none;
+    font-size: 2.3em;
+    display: block;
+
+    background: theme.$pink-white-bg;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+}
+
+/********************************** URLs **********************************/
+
+a{
+	color: theme.$dark-purple;
+	text-decoration: underline;
+}
+
+/********************************** Components: Nav links **********************************/
+.nav{
+  z-index: 100;
+
+  >.name{
+    font-family: theme.$font-stack-bold;
+    color: theme.$dark-purple;
+    padding: $padding;
+    padding-right: $padding-double;
+  }
+
+  .button{
+    width: fit-content;
+    padding: 0 $padding;
+
+    line-height: $nav-bar-height;
+  }
+  .clicked, .button:hover {
+    border-bottom: 4px solid theme.$dark-purple;
+    cursor: pointer;
+    color: theme.$dark-purple;
+  }
+
+  #myLinks{
+    display: flex;
+  }
+}
+
+@media only screen and (max-device-width: 450px) {
+  body{
+    .nav{
+      display: block;
+      font-size: $large-font-size-mobile;
+
+      >.name{
+        font-size: $large-font-size-mobile;
+        line-height: 2.5em;
+        padding-left: $padding;
+      }
+      #myLinks{
+        display: none;
+        background-color: theme.$pink-white-bg;
+        padding:$padding;
+
+        >.button{
+          padding: $padding;
+          display: block;
+          font-size: $large-font-size-mobile;
+          line-height: $large-font-size-mobile;
+        }
+      }
+
+    }
+  }
+}
+
+/********************************** Paragraphs  **********************************/
+p{
+	color: theme.$dark-purple;
+	margin: inherit;
+}
+
+
+
+@media only screen and (max-device-width: 450px) {
+
+  .paragraph{
+    padding: $padding-mobile;
+  }
+}
+
+/********************************** Info card  **********************************/
+
+
+.info-card{
+  background-color: theme.$pastel-pink;
+  padding: $padding-double;
+  color: theme.$purple-bg;
+
+  i{
+    margin-right: $padding;
+    color: theme.$pastel-pink;
+    padding: 0.5em 0.5em;
+    text-decoration: none;
+    background: theme.$purple-bg;
+    position: relative;
+    right: 0;
+    top: 0;
+
+    font-size: 18px;
+    height: 18px;
+    width: 18px;
+    border-radius:5px;
+
+    border: 0.5px solid theme.$dark-gray;
+
+  }
+
+  .fa-code {
+    font-size:17px;
+  }
+
+  p{
+    padding: 2px 0px;
+    color: theme.$mid-gray;
+    /*font-weight: 500;
+    font-family: Arial;*/
+  }
+}
+
+@media only screen and (max-device-width: 450px) {
+
+  .info-card {
+    i{
+      margin-right: 16px;
+      padding: 16px;
+      font-size: 12px;
+      height: 32px;
+      width: 32px;
+    }
+
+    .fa-code {
+      font-size: 12px;
+    }
+  }
+
+}
+/********************************** Colored texts  **********************************/
+
+/*.highlight{
+  color: theme.$dark-pink;
+}*/
+/*.location{
+  color: theme.$dark-pink;
+}*/
+
+/********************************** Resume-row  **********************************/
+.resume-row {
+  padding: $padding;
+  margin: $padding 0;
+  display: grid;
+  grid-template-rows : auto auto;
+  grid-template-columns: auto;
+  grid-template-areas:
+      "resume-col-header"
+      "resume-col-content";
+
+  /*background-color: theme.$pink-white-bg;*/
+
+  .resume-col-header{
+    font-size: $large-font-size;
+    font-family: theme.$font-stack-bold;
+    color: theme.$dark-purple;
+    padding: $padding 0;
+  }
+
+  .resume-col-content{
+    font-family: theme.$font-stack;
+    color: theme.$mid-gray;
+
+  }
+
+}
+
+@media only screen and (max-device-width: 450px) {
+  .resume-row {
+    padding: $padding-mobile;
+    margin: $padding-mobile 0;
+  }
+}
+
+/********************************** Content box  **********************************/
+/* content- --> this means its a project, presentation, paper, item, etc.*/
+/* content-text-box --> same as above just without thumbnail */
+.content-text-box{
+	/*
+		a content-text-box contains
+		header  --  date
+		location
+		description
+		links
+	*/
+	display: grid;
+  grid-template-columns: 80% 20%;
+  grid-template-rows: auto auto auto auto;
+	grid-template-areas:
+		"tileheader date"
+		"location location"
+		"description description"
+		"links links"
+	;
+
+	padding: $padding;
+	margin: $padding 0px;
+  border-radius: 0.5em;
+
+  background-color: theme.$gray-white-bg;
+  border: 0.5px solid theme.$dark-gray;
+  color: white;
+
+  >.header{
+    color: theme.$dark-purple;
+    font-family: theme.$font-stack-bold;
+    grid-area: tileheader;
+  }
+  .location{
+    grid-area: location;
+    color: theme.$mid-gray;
+    font-weight: 600;
+  }
+  .date{
+    grid-area: date;
+    text-align: right;
+    background-color: theme.$light-pink;
+    border-radius: 0.25em;
+    color: theme.$mid-gray;
+    font-size: $small-font-size;
+    padding: 2px 4px;
+    border: 0.5px solid theme.$dark-gray;
+  }
+  .description{
+    grid-area: description;
+    color: theme.$gray-white;
+
+  }
+  .links{
+    grid-area: links;
+
+  }
+
+}
+
+
+@media only screen and (max-device-width: 768px) {
+  .content-text-box{
+    width:100%;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto auto auto auto;
+    grid-template-areas:
+        "date"
+        "tileheader"
+        "location"
+        "description"
+        "links"
+    ;
+    > .date{
+      grid-area:date;
+      text-align:left;
+      margin-bottom: $padding;
+
+    }
+  }
+}
+
+
+
+@media only screen and (max-device-width: 450px) {
+
+  .content-text-box{
+    margin-bottom: $padding-mobile;
+    padding-top: $padding-mobile;
+    > .date{
+      margin-bottom: $padding-mobile;
+    }
+  }
+}
+
+/********************************* List **************************************************************************************************/
+/* list --> this contains a compact ist of list-items and publication-items
+   list-items contains
+   	- a header within the item with darker font
+   	- a description with gray font
+   	- date
+   	- location
+   	- links
+
+   publication-items contains
+    - a header within the item with darker font
+	- title with gray font
+    - date
+    - location
+    - links
+
+*/
+.list{
+	display: grid;
+	grid-template-columns: 100%;
+	grid-auto-flow: row;
+	margin-top: $padding;
+
+  >.list-item{
+    padding: $padding;
+    border-top: theme.$dark-gray solid 0.5px;
+
+    >.header{
+      color: theme.$dark-purple;
+    }
+
+    >.title{
+      color: theme.$dark-purple;
+    }
+
+    >.description{
+      /*color: theme.$light-gray;*/
+      grid-area: description;
+    }
+
+    >.location{
+      /*color: theme.$light-gray;*/
+      grid-area: location;
+    }
+    >.date{
+      grid-area: date;
+      /*color: theme.$light-gray;*/
+    }
+    >.links{
+      grid-area: links;
+    }
+  }
+
+  >.publication-item{
+    padding: $padding;
+    border-top: theme.$dark-gray solid 0.5px;
+        /*background: #ffd1dc;
+        margin: 8px 0px;
+        border-radius: 1em;*/
+
+
+    >.header{
+      color: theme.$dark-purple;
+    }
+
+    >.title{
+      color: theme.$dark-purple;
+    }
+
+    >.location{
+      /*color: theme.$light-gray;*/
+      grid-area: location;
+    }
+
+    >.date{
+      grid-area: date;
+      /*color: theme.$light-gray;*/
+    }
+    >.links{
+      grid-area: links;
+    }
+  }
+
+  >.tabbed{
+    padding-left: $padding ;
+  }
+}
+
+
+@media only screen and (max-device-width: 450px) {
+
+  .list{
+    >.list-item{
+      padding: $padding-mobile;
+    }
+    >.publication-item{
+      padding: $padding-mobile;
+    }
+  }
+}

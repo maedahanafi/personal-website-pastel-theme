@@ -1,0 +1,63 @@
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+
+	<title> Add a title here! </title>
+
+	<link rel="stylesheet" type="text/css" href="css/jquery.jscrollpane.css" />
+	<link rel="stylesheet" type="text/css" href="css/pastel.pink.css"/>
+
+	<!-- SPELLS -->
+	<script src='js/library/jquery-2.1.0.min.js'></script>
+
+	<!-- Main controller files -->
+    <script src='js/controller/page_controller.js'></script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+
+<script>
+$(document).ready(function(){
+    setPage("partial/cv.html",1);
+});
+
+
+function onClickMenu() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+
+</script>
+<body >
+	<div class="nav">
+		<div class="name">Your name here</div>
+		<div id="myLinks">
+			<div class="button" onclick="setPage('partial/aboutme.html',0)">About Me</div>
+			<div class="button" onclick="setPage('partial/cv.html',1)">CV</div>
+		</div>
+		<a href="javascript:void(0);" class="menu-icon" onclick="onClickMenu()">
+			<i class="fa fa-bars"></i>
+		</a>
+	</div>
+
+	<div class="header">
+        <div class="name">Your name here</div>
+		<div class="info-card ">
+			<p class="content-text"><i class="fa fa-location-dot"></i>NYC, USA // San Jose, USA</p>
+			<p class="content-text"><i class="fa-solid fa-envelope"></i>your.email@email.com</p>
+			<p class="content-text"><i class="fa-solid fa-code"></i><a href="https://github.com/theTrueCaptian/">My Github</a></p>
+			<p class="content-text"><i class="fa-solid fa-book"></i><a href="https://maeda-han.medium.com/">My Medium Articles</a></p>
+
+		</div>
+	</div>
+    <div id="dynamic-content" class="main"></div>
+
+   
+
+</body>
+</html>

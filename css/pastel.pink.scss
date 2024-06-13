@@ -1,0 +1,129 @@
+
+/********************************** Font face **********************************/
+@font-face {
+  font-family: Raleway;
+  src: url(./Raleway-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: RalewayItalic;
+  src: url(./Raleway-Italic-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: RalewayBlack;
+  src: url(./Raleway-Black.ttf);
+}
+@font-face {
+  font-family: RalewayBold;
+  src: url(./Raleway-Bold.ttf);
+}
+
+
+/********************************** Color Variables **********************************/
+
+/* purples */
+$dark-purple: #715ea2;
+$purple-bg: #b6add8;
+$purple-white-bg: #eae6f5;
+
+/* pinks */
+$dark-pink: #fec9d1;
+$light-pink: #ffe7e6;
+$pastel-pink: #ffd1dc;
+$pink-white-bg: #f8ebee;
+
+/* gray */
+$dark-gray: #66666e;
+$mid-gray: #6d6d74;
+$light-gray: #9999a1;
+$gray-white: #9999a1;
+$gray-white-bg: #eaeaec;
+$gray-white-button: #d4d4d8;
+
+
+/********************************** Font **********************************/
+
+$font-stack: Raleway;
+$font-stack-bold: RalewayBlack;
+$font-stack-secondary: Arial;
+
+@mixin main-font() {
+  /*background-color: $light-pink;*/
+  font-family: $font-stack;
+  font-weight: 500;
+}
+
+@mixin title-font() {
+  font-family: $font-stack-bold;
+  font-weight: bolder;
+  color: $mid-gray;
+}
+
+@mixin nav-font() {
+  font-family: $font-stack;
+  color:$light-gray;
+  font-weight: 500;
+
+}
+
+
+/********************************** Mixins for components **********************************/
+
+
+@mixin body() {
+  @include main-font();
+  background-color: $light-pink;
+
+}
+
+@mixin button() {
+  background-color: $dark-purple;
+  color: $gray-white-button;
+}
+
+@mixin nav() {
+  @include nav-font();
+
+  background-color:  $pink-white-bg;
+  color: $purple-bg;
+  border-bottom: 1px solid $purple-bg;
+
+}
+
+@mixin nav-link() {
+  background-color: $pink-white-bg;
+  color: $purple-bg;
+}
+
+@mixin dark-pink-tile() {
+  color: $mid-gray;
+  background-color: $dark-pink;
+}
+
+@mixin light-pink-tile() {
+  color: $light-gray;
+  background-color: $light-pink;
+}
+
+@mixin purple-tile() {
+  background-color: $purple-bg;
+  color: $gray-white;
+  border-radius: 1em;
+}
+
+@mixin purple-border-tile() {
+  color: $dark-purple;
+  border: 1px solid $dark-purple;
+  background-color: $gray-white-bg;
+}
+
+@mixin purple-form-tile() {
+  background-color: $purple-bg;
+  color: $dark-gray;
+}
+
+@mixin purple-form-input() {
+  background-color: $purple-white-bg;
+  color: $dark-purple;
+}
+
+
